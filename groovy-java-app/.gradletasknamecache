@@ -41,6 +41,7 @@ compileTestGroovy
 compileTestJava
 processResources
 processTestResources
+runApp
 startScripts
 Pattern:
 Pattern:
@@ -88,4 +89,5 @@ compileTestGroovy
 compileTestJava
 processResources
 processTestResources
+runApp
 startScripts

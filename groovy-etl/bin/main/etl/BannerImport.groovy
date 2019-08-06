@@ -3,7 +3,7 @@ package etl
 import etl.jobs.CopyTableJob
 
 
-class BannerTbraccd {
+class BannerImport {
     static void main(String[] args) {
         Properties props = App.getAppProperties()
         Map dbSrc = [
@@ -19,11 +19,11 @@ class BannerTbraccd {
             driver: props.getProperty('dst.driver'),
         ]
         List jobs = [
-            new CopyTableJob(dbSrc, dbDst, 'SPRIDEN', "SPRIDEN_ACTIVITY_DATE >= '1-jan-10'"),
-            new CopyTableJob(dbSrc, dbDst, 'STVTERM'),
+            // new CopyTableJob(dbSrc, dbDst, 'SPRIDEN', "SPRIDEN_ACTIVITY_DATE >= '1-jan-10'"),
+            // new CopyTableJob(dbSrc, dbDst, 'STVTERM'),
             new CopyTableJob(dbSrc, dbDst, 'TBBDETC'),
-            new CopyTableJob(dbSrc, dbDst, 'TBRACCD', "TBRACCD_ENTRY_DATE >= '1-jan-19'"),
-            new CopyTableJob(dbSrc, dbDst, 'TTVDCAT'),
+            // new CopyTableJob(dbSrc, dbDst, 'TBRACCD', "TBRACCD_ENTRY_DATE >= '1-jan-19'"),
+            // new CopyTableJob(dbSrc, dbDst, 'TTVDCAT'),
         ]
         
         jobs.each {

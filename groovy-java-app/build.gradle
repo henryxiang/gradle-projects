@@ -30,5 +30,18 @@ dependencies {
     testImplementation 'org.spockframework:spock-core:1.2-groovy-2.5'
 }
 
+test {
+	//we want display the following test events
+    testLogging {
+        // events "PASSED", "STARTED", "FAILED", "SKIPPED"
+        events "PASSED", "FAILED"
+    }
+}
+
 // Define the main class for the application
 mainClassName = 'com.demo.App'
+
+task runApp(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = project.hasProperty('mainClass') ? project.getProperty('mainClass') : mainClassName
+}
