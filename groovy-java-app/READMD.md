@@ -1,34 +1,40 @@
-# Groovy Demo App
+# Gradle Demo App (Groovy + Java)
 
-## Run a Specific Groovy App in Dev Mode
+## Running a Specific App in Dev Mode
 
 ```bash
-./gradlew runApp -PmainClass=com.demo.App
+./gradlew runApp -PmainClass=com.demo.JavaApp
 ```
 
-To run the default application, which specified by `mainClassName` variable in `build.gradle` file,
+To run the default application, which specified by `mainClassName` variable in [`build.gradle`](./build.gradle) file,
 use the following command
 
 ```bash
 ./gradlew run
 ```
 
-## Build JAR file
+## Running All Tests
+
+```bash
+./gradlew test
+```
+
+## Building JAR File for Distribution
 
 ```bash
 ./gradlew build
 ```
 
-The "fat-jar" file will be built and put into `build/lib` directory.
+The "fat-jar" file will be built and put into [`build/lib`](./build/lib/) directory. The name of JAR file is configurable in [`settings.gradle`](./settings.gradle) file.
 
-## Run Java Class in JVM
+## Running Java Class in JVM
 
 ```bash
-java -cp build/lib/groovy-etl.jar <full.class.Name>
+java -cp build/lib/groovy-java-app.jar <full.class.Name>
 ```
 
 To run the default class,
 
 ```bash
-java -jar build/lib/groovy-etl.jar
+java -jar build/lib/groovy-java-app.jar
 ```

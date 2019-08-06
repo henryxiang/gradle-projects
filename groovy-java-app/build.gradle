@@ -41,6 +41,7 @@ test {
 // Define the main class for the application
 mainClassName = 'com.demo.App'
 
+// Enabling to run app by its class name
 task runApp(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
     main = project.hasProperty('mainClass') ? project.getProperty('mainClass') : mainClassName
