@@ -1,15 +1,15 @@
-package etl.jobs
+package etl.util
 
 
 import groovy.sql.Sql
 
-class CopyTableJob {
+class CopyTable {
     Sql sqlSrc
     Sql sqlDst
     String table
     String whereClause
 
-    CopyTableJob(Map dbSrc, Map dbDst, String table, String whereClause = '') {
+    CopyTable(Map dbSrc, Map dbDst, String table, String whereClause = '') {
         sqlSrc = Sql.newInstance(dbSrc.url, dbSrc.user, dbSrc.password, dbSrc.driver)
         sqlDst = Sql.newInstance(dbDst.url, dbDst.user, dbDst.password, dbDst.driver)
         this.table = table
@@ -29,6 +29,6 @@ class CopyTableJob {
     }
 
     def cleanup() {
-        sqlDst.execute("truncate table $table")
+        sqlDst.execute("truncate table $table".toString())
     }
 }
