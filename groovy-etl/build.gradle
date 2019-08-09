@@ -29,6 +29,8 @@ dependencies {
     // Use the latest Groovy version for building this library
     implementation 'org.codehaus.groovy:groovy-all:2.5.4'
     implementation 'com.gmongo:gmongo:1.5'
+    implementation group: 'org.apache.ddlutils', name: 'ddlutils', version: '1.0'
+    implementation group: 'com.javaforge.scriptella', name: 'scriptella-parent', version: '1.1', ext: 'pom'
     implementation name: 'ojdbc7'
 
     // Use the awesome Spock testing and specification framework

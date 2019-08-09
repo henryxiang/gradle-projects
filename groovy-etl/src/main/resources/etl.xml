@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE etl SYSTEM "etl.dtd">
+<etl>
+    <description></description>
+    <properties>
+        <include href="script.properties"/>
+        driver=org.jdcDriver
+    </properties>
+    <connection id="in" driver="$driver" url="${url}" user="$user" password="12345678">
+        driver.property=value
+    </connection>
+    <connection id="out" url="jdbc:hsqldb:file:db" user="sa" password=""/>
+    <script connection-id="out">
+        <include href="dbschema.sql"/>
+    </script>
+    <query connection-id="in">
+        SELECT * from Bug
+        <script connection-id="out">
+            INSERT INTO Bug VALUES (?ID, ?priority, ?summary, ?status);
+        </script>
+    </query>
+</etl>
